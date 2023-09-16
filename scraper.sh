@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# command to download and get frames from youtube video
+# use if roboflow video upload isn't working
+
 # Check for the youtube-dl and ffmpeg commands
 if ! command -v youtube-dl &>/dev/null; then
     echo "Error: youtube-dl is not installed. Please install it."
@@ -22,7 +25,7 @@ youtube_url="$1"
 video_id=$(echo "$youtube_url" | cut -d '=' -f 2)
 
 # Download the video using youtube-dl
-youtube-dl --verbose -f best -o "$video_id/video.mp4" "$youtube_url"
+youtube-dl --verbose -f best -o "yt$video_id/video.mp4" "$youtube_url"
 
 # Check if the download was successful
 if [ $? -ne 0 ]; then
@@ -31,10 +34,10 @@ if [ $? -ne 0 ]; then
 fi
 
 # Create a folder for frames
-mkdir -p frames
+mkdir -p yt$video_id/frames
 
 # Slice the video into frames using ffmpeg
-ffmpeg -i video.mp4 -vf "select=not(mod(n\,30))" -vsync vfr $video_id/frames/frame%04d.png
+ffmpeg -i yt$video_id/video.mp4 -vf "fps=1" yt$video_id/frames/frame%04d.png
 
 # Check if the frame extraction was successful
 if [ $? -eq 0 ]; then
