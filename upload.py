@@ -7,4 +7,4 @@ rf = Roboflow(api_key=os.getenv("ROBOFLOW"))
 project = rf.workspace().project("wfpfopt")
 
 # will look for a file named "dataset" in the project directory
-project.version(6).deploy("yolov8", f"{PROJ}/dataset/runs/detect/train/")
+project.version(8).deploy("yolov8", f"{PROJ}/runs/detect/train/")

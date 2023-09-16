@@ -154,3 +154,5 @@ cython_debug/
 # ai training
 dataset
 yt*
+runs
+yolov8n.pt
