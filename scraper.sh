@@ -4,7 +4,7 @@
 # use if roboflow video upload isn't working
 
 # Check for the youtube-dl and ffmpeg commands
-if ! command -v youtube-dl &>/dev/null; then
+if ! command -v yt-dlp &>/dev/null; then
     echo "Error: youtube-dl is not installed. Please install it."
     exit 1
 fi
@@ -25,7 +25,7 @@ youtube_url="$1"
 video_id=$(echo "$youtube_url" | cut -d '=' -f 2)
 
 # Download the video using youtube-dl
-youtube-dl --verbose -f best -o "yt$video_id/video.mp4" "$youtube_url"
+#yt-dlp --verbose -f best -o "yt$video_id/video.mp4" "$youtube_url"
 
 # Check if the download was successful
 if [ $? -ne 0 ]; then

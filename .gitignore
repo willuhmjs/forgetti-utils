@@ -152,7 +152,7 @@ cython_debug/
 #.idea/
 
 # ai training
-dataset
+*dataset*
 yt*
 runs
 yolov8n.pt
