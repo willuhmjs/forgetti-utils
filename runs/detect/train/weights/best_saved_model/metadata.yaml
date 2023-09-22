@@ -1,0 +1,13 @@
+description: Ultralytics YOLOv8n model trained on data.yaml
+author: Ultralytics
+license: AGPL-3.0 https://ultralytics.com/license
+date: '2023-09-22T00:39:20.456281'
+version: 8.0.134
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 640
+- 640
+names:
+  0: spaghetti
