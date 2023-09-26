@@ -4,6 +4,7 @@ import cv2
 import json
 import threading
 from ultralytics import YOLO
+from collections import deque
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -12,15 +13,14 @@ app = Flask(__name__)
 def generate_frames():
     while True:
         if len(frames) > 0:
-            frame = frames.pop(0)
+            frame = frames.popleft()
             yield (b'--frame\r\n'
                    b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
 
 # Function to run YOLO predictions and generate frames
 def run_yolo():
-    global frames
     model = YOLO("best.pt")
-    source = "URL HERE"
+    source = "URL_HERE"
     results = model.predict(source=source, verbose=False, show=False, stream=True, conf=0.55)
     for r in results:
         j = json.loads(r.tojson())
@@ -35,10 +35,11 @@ def run_yolo():
                 print(f'Possible detection found @ {confidence}')
         frames.append(frame_bytes)
         # Keep only the last 10 frames in the queue
-        frames = frames[-10:]
+        while len(frames) > 10:
+            frames.popleft()
 
 # Start running YOLO predictions in a separate thread
-frames = []
+frames = deque()
 threading.Thread(target=run_yolo, args=()).start()
 
 # Serve the generated frames to each user
