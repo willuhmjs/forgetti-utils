@@ -7,7 +7,8 @@ results = model.predict(source="https://fabbaloo.com/wp-content/uploads/2020/05/
 for r in results:
     j = json.loads(r.tojson())
     img = r.plot()
-    cv2.imwrite("test.jpg", img)
+    # img is numpy array
+    print(img)
     if len(j) > 0:
         confidence = round(j[0]["confidence"], 2)
         if confidence >= 0.7:
