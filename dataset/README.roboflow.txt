@@ -1,8 +1,8 @@
 
-wfpfopt - v12 2023-09-20 5:03pm
+wfpfopt - v15 2023-09-27 10:34pm
 ==============================
 
-This dataset was exported via roboflow.com on September 20, 2023 at 9:09 PM GMT
+This dataset was exported via roboflow.com on September 28, 2023 at 2:43 AM GMT
 
 Roboflow is an end-to-end computer vision platform that helps you
 * collaborate with your team on computer vision projects
@@ -17,7 +17,7 @@ visit https://github.com/roboflow/notebooks
 
 To find over 100k other datasets and pre-trained models, visit https://universe.roboflow.com
 
-The dataset includes 4970 images.
+The dataset includes 7405 images.
 3d print failure are annotated in YOLOv8 format.
 
 The following pre-processing was applied to each image:
