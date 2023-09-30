@@ -1,13 +1,13 @@
 task: detect
 mode: train
-model: best.pt
+model: yolov8n.yaml
 data: dataset/data.yaml
-epochs: 50
+epochs: 130
 patience: 50
 batch: 16
 imgsz: 640
 save: true
-save_period: -1
+save_period: 50
 cache: false
 device: 0
 workers: 8
@@ -95,4 +95,4 @@ mixup: 0.0
 copy_paste: 0.0
 cfg: null
 tracker: botsort.yaml
-save_dir: runs/detect/train3
+save_dir: runs/detect/train

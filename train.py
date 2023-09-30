@@ -5,6 +5,6 @@ from ultralytics import YOLO
 # this code is really for a private project so i dont care about reusability
 
 model = YOLO("yolov8n.yaml")
-model.train(data="dataset/data.yaml", epochs=125, imgsz=640, device=0, save_period=50)
+model.train(data="dataset/data.yaml", epochs=130, imgsz=640, device=0, save_period=50)
 metrics = model.val()
-path = model.export(format="tfjs");
+#path = model.export(format="tfjs");

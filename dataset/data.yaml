@@ -4,8 +4,8 @@ nc: 1
 roboflow:
   license: CC BY 4.0
   project: wfpfopt
-  url: https://universe.roboflow.com/william-faircloth-bgdyk/wfpfopt/dataset/15
-  version: 15
+  url: https://universe.roboflow.com/william-faircloth-bgdyk/wfpfopt/dataset/17
+  version: 17
   workspace: william-faircloth-bgdyk
 test: ./test/images
 train: ./train/images
