@@ -2,7 +2,7 @@ task: detect
 mode: train
 model: yolov8n.yaml
 data: dataset/data.yaml
-epochs: 130
+epochs: 100
 patience: 50
 batch: 16
 imgsz: 640
